@@ -1,3 +1,3 @@
 # Divinity
 
-A mod about rituals
+A mod about gods and rituals
