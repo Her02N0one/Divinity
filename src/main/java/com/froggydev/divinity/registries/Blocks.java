@@ -1,6 +1,6 @@
 package com.froggydev.divinity.registries;
 
-import net.minecraft.client.renderer.item.ItemProperties;
+import com.froggydev.divinity.DivinityMod;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -14,14 +14,12 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-import static com.froggydev.divinity.DivinityMod.MODID;
-
-public class DivinityBlocks {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+public class Blocks {
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DivinityMod.MODID);
 
     public static final RegistryObject<Block> BONFIRE = registerBlock("bonfire",
             () -> new Block(BlockBehaviour.Properties.of(Material.FIRE)
-                    .strength(9f).requiresCorrectToolForDrops()), new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_MISC));
+                    .strength(9f).requiresCorrectToolForDrops()), new Item.Properties().stacksTo(1).tab(DivinityMod.DIVINITY_TAB));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
         return registerBlock(name, block, new Item.Properties().tab(tab));
@@ -34,7 +32,7 @@ public class DivinityBlocks {
     }
 
     public static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, Item.Properties itemProperties){
-        return DivinityItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+        return Items.ITEMS.register(name, () -> new BlockItem(block.get(),
                 itemProperties));
     }
     public static void register(IEventBus eventBus){

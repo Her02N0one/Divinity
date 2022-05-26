@@ -9,9 +9,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class DivinityItems {
+public class Items {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DivinityMod.MODID);
-    public static final RegistryObject<Item> HOLY_TORCH = ITEMS.register("holy_torch", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> HOLY_TORCH = ITEMS.register("holy_torch", () -> new Item(new Item.Properties().tab(DivinityMod.DIVINITY_TAB)));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

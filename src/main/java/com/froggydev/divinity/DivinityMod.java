@@ -1,8 +1,9 @@
 package com.froggydev.divinity;
 
-import com.froggydev.divinity.registries.DivinityBlocks;
-import com.froggydev.divinity.registries.DivinityItems;
+import com.froggydev.divinity.registries.Blocks;
+import com.froggydev.divinity.registries.Items;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +15,12 @@ import org.slf4j.Logger;
 public class DivinityMod
 {
     public static final String MODID = "divinity";
+    public static final net.minecraft.world.item.CreativeModeTab DIVINITY_TAB = new net.minecraft.world.item.CreativeModeTab("divinitytab") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(Items.HOLY_TORCH.get());
+        }
+    };
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -22,8 +29,8 @@ public class DivinityMod
         // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        DivinityItems.register(eventBus);
-        DivinityBlocks.register(eventBus);
+        Items.register(eventBus);
+        Blocks.register(eventBus);
 
         eventBus.addListener(this::setup);
 
