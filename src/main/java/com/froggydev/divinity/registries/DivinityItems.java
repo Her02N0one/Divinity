@@ -1,4 +1,4 @@
-package com.froggydev.divinity.regestries;
+package com.froggydev.divinity.registries;
 
 
 import com.froggydev.divinity.DivinityMod;
