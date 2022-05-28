@@ -1,4 +1,5 @@
 {
   "item.divinity.holy_torch": "Holy Torch",
-  "block.divinity.bonfire": "Bonfire"
+  "block.divinity.bonfire": "Bonfire",
+  "itemGroup.divinitytab": "Divinity"
 }
